@@ -34,8 +34,8 @@ namespace WeatherServer.Controllers
             using (StreamReader reader = new(_pathName))
             using (CsvReader csv = new(reader, config))
             {
-                IEnumerable<WorldCitiesCSV>? records = csv.GetRecords<WorldCitiesCsv>();
-                foreach (WorldCitiesCsv record in records)
+                IEnumerable<WorldCitiesCSV>? records = csv.GetRecords<WorldCitiesCSV>();
+                foreach (WorldCitiesCSV record in records)
                 {
                     if (!countries.TryGetValue(record.country, out Country? value))
                     {
@@ -54,7 +54,7 @@ namespace WeatherServer.Controllers
                         Latitude = record.lat,
                         Longitude = record.lng,
                         Population = (int)record.population.Value,
-                        CountryId = value.Id
+                        CountryId = value.CountryId
                     };
                     db.Cities.Add(city);
                     cityCount++;

@@ -77,9 +77,8 @@ namespace CountryModel.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(20)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(max)");
 
                     b.HasKey("CountryId")
                         .HasName("PK__Country__10D1609FECCDD0F9");
